@@ -81,7 +81,7 @@ cacheSolve <- function(x, ...) {
 
 
 # For the sake of creativity, the following code performs the same function
-# as cacheColve(), but is written in as compact a form as I can conceive.
+# as cacheSolve(), but is written in as compact a form as I can conceive.
 # The makeCacheMatrix_test() confirms it works.
 cacheSolveTerse <- function(x, ...) {
     xInverted <- x$getSolve()
