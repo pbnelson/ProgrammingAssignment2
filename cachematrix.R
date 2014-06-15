@@ -70,7 +70,7 @@ cacheSolve <- function(x, ...) {
     else {
         aMatrix <- x$get()  # get the matrix
         xInverted <- solve(aMatrix, ...)  # compute its inverse
-        x$setSolve(invertedMatrix) # save the solution
+        x$setSolve(xInverted) # save the solution
     }
 
     # Finally, return the value retrieved/computed
@@ -80,12 +80,13 @@ cacheSolve <- function(x, ...) {
 
 
 
-# for the sake of creativity, the following performs the same function,
-# but it as compact a form as I can conceive.
+# For the sake of creativity, the following code performs the same function
+# as cacheColve(), but is written in as compact a form as I can conceive.
+# The makeCacheMatrix_test() confirms it works.
 cacheSolveTerse <- function(x, ...) {
     xInverted <- x$getSolve()
-    if(!is.null(xInverted))     message("getting cached data")
-    else                        xInverted <- x$setSolve(solve(x$get()))
+    if(!is.null(xInverted)) message("getting cached data")
+    else xInverted <- x$setSolve(solve(x$get()))
     return(xInverted)
 }
 
